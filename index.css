@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+}
+#container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    background: blue;
+    box-sizing: border-box;
+}
+
+#input {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+#title, #date, #agenda {
+    margin-bottom: 30px;
+    width: 80%;
+    height: 50px;
+}
+
+#btnSimpan {
+    width: 80%;
+    height: 60px;
+    background: green;
+}
+
+#hasil {
+    display: block;
+    width: 100%;
+    min-height: 20px;
+    background: rgb(0, 255, 179);
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
+    box-sizing: border-box;
+}
+
+#judul {
+    display: block;
+    width: 250px;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto;
+}
+.title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: 140px;
+    width: 100px;
+    height: 50px;
+    background: coral;
+    margin-bottom: -30px;
+}
+
+.card{
+    margin: 50px auto;
+    width: 80%;
+    min-height: 150px;
+    background: coral;
+    border-bottom-right-radius: 50px;
+    box-sizing: border-box;
+}
+
+
+#hasil div span{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:78vmax;
+    margin-top: -20px;
+    background: red;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
