@@ -10,7 +10,7 @@ let dailyTask = [];
 const render = (item) => {
     return `
         <div class="title">
-        <p>${item.title}</p>
+        <p class="getTitle">${item.title}</p>
         </div>
         <div class="card">
             <span class="hapus">X</span>   
@@ -23,6 +23,25 @@ const addDailyTask = (item) => {
         hasil.innerHTML += render(item)
 }
 
+// const hapusData = (title_delete) =>{
+//     const data = JSON.parse(localStorage.getItem("dailyTask"));
+//     data.forEach(datas => {
+//         if (title_delete == datas.title)
+//         {
+
+//         }
+//     });
+//     localStorage.removeItem();
+// }
+
+const hapusData = (item) =>{
+    // localStorage.removeItem(item.valueOf.length)
+    // console.log(item.valueOf.length)
+    for (let i = 0; i < dailyTask.length; i++) {
+        const element = dailyTask[i];
+        const index = element.valueOf.length
+    }
+}
 
 
 const kosong = () => {
@@ -57,20 +76,17 @@ if(localStorage.getItem("dailyTask")){
     dailyTask = JSON.parse(localStorage.getItem("dailyTask"));
     dailyTask.forEach(item => {
         addDailyTask(item);
+        hapusData(item)
     });
-    console.log(dailyTask)  
+    console.log('data==>',dailyTask)  
 }else {
     hasil.innerHTML += kosong()
 }
-
-
-
-
-// const div = document.createElement('div');
-// const tanggal = document.createElement('p');
-// const list = document.createElement('p');
-// tanggal.innerHTML = '20 feb 2002';
-// list.innerHTML = '20 feb 2002';
-// div.appendChild(tanggal);
-// div.appendChild(list);
-// hasil.appendChild(div)
+const hapus = document.querySelector('.hapus');
+// const getTitle = document.querySelector('.getTitle');
+hapus.addEventListener('click', () =>{
+    // hapusData(index)
+    console.log(hapusData.prototype)
+    // console.log(getTitle.innerHTML)
+    // location.reload();
+})
