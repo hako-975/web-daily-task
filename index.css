@@ -39,6 +39,7 @@ body {
     border-top-left-radius: 150px;
     border-top-right-radius: 150px;
     box-sizing: border-box;
+    margin-top: 40px;
 }
 
 #judul {
@@ -48,6 +49,8 @@ body {
     font-weight: bold;
     color: white;
     margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 .title {
     display: flex;

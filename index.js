@@ -15,7 +15,7 @@ const render = (item) => {
         <div class="card">
             <span>X</span>   
             <p>${item.date}</p>
-            <p>${item.title}</p>
+            <li>${item.title}</li>
         </div>
     `
 }
