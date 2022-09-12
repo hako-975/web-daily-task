@@ -13,9 +13,9 @@ const render = (item) => {
         <p>${item.title}</p>
         </div>
         <div class="card">
-            <span>X</span>   
+            <span class="hapus">X</span>   
             <p>${item.date}</p>
-            <li>${item.title}</li>
+            <p>${item.agenda}</p>
         </div>
     `
 }
@@ -26,9 +26,10 @@ const addDailyTask = (item) => {
 
 
 const kosong = () => {
-    const pKosong = document.createElement('p');
-    pKosong.innerHTML = 'Daily Task Kosong';
-    hasil.appendChild(pKosong);
+    return`
+        <p class="kosong">Daily Task Kosong</p>
+    `
+
 }
 
     btnSimpan.addEventListener('click', () => {
@@ -59,7 +60,7 @@ if(localStorage.getItem("dailyTask")){
     });
     console.log(dailyTask)  
 }else {
-    kosong();
+    hasil.innerHTML += kosong()
 }
 
 
