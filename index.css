@@ -24,6 +24,7 @@ body {
     width: 80%;
     height: 50px;
     border-radius: 10px;
+    
 }
 #agenda {
     margin-bottom: 30px;
@@ -51,6 +52,8 @@ body {
     border-top-right-radius: 150px;
     box-sizing: border-box;
     margin-top: 40px;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.5);
+    
 }
 
 #judul {
@@ -70,7 +73,7 @@ body {
     display: flex;
     text-align: center;
     align-items: center;
-    margin-left: 140px;
+    margin-left: 50px;
     width: 100px;
     height: 50px;
     background: coral;
@@ -78,7 +81,7 @@ body {
 }
 
 .card{
-    margin: 50px auto;
+    margin: 50px;
     width: 80%;
     min-height: 150px;
     background: coral;
@@ -92,7 +95,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left:78vmax;
+    /* margin-left:78vmax; */
+    margin-left: 78%;
     margin-top: -20px;
     background: red;
     color: white;
