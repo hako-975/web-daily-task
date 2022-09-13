@@ -7,40 +7,44 @@ const hasil = document.querySelector("#hasil");
 const btnSimpan = document.querySelector("#btnSimpan");
 
 let dailyTask = [];
-const render = (item) => {
+const render = (item, i) => {
     return `
         <div class="title">
-        <p class="getTitle">${item.title}</p>
+        <p>${item.title}</p>
         </div>
         <div class="card">
-            <span class="hapus">X</span>   
+            <span id="${i}" class="hapus">X</span>   
             <p>${item.date}</p>
             <p>${item.agenda}</p>
         </div>
     `
 }
-const addDailyTask = (item) => {
-        hasil.innerHTML += render(item)
+const addDailyTask = (item, i) => {
+        hasil.innerHTML += render(item, i)
 }
 
-// const hapusData = (title_delete) =>{
-//     const data = JSON.parse(localStorage.getItem("dailyTask"));
-//     data.forEach(datas => {
-//         if (title_delete == datas.title)
-//         {
+const hapusData = (id) =>{
+    var tmp = JSON.parse(localStorage.getItem("dailyTask"));
+    localStorage.clear();
+    tmp.splice(id, 1);
+    
+    localStorage.setItem("dailyTask", JSON.stringify(tmp));
 
-//         }
-//     });
-//     localStorage.removeItem();
-// }
-
-const hapusData = (item) =>{
-    // localStorage.removeItem(item.valueOf.length)
-    // console.log(item.valueOf.length)
-    for (let i = 0; i < dailyTask.length; i++) {
-        const element = dailyTask[i];
-        const index = element.valueOf.length
+    if(localStorage.getItem("dailyTask")){
+        dailyTask = JSON.parse(localStorage.getItem("dailyTask"));
+        i = 0;
+        dailyTask.forEach(item => {
+            addDailyTask(item, i);
+            i++;
+        });
+    }else {
+        hasil.innerHTML += kosong()
     }
+
+    title.value= "",
+    date.value= "",
+    agenda.value= "";
+    location.reload();
 }
 
 
@@ -51,8 +55,9 @@ const kosong = () => {
 
 }
 
-    btnSimpan.addEventListener('click', () => {
+btnSimpan.addEventListener('click', () => {
         dailyTask.push({
+            idDailyTask: dailyTask.length,
             title: title.value,
             date: date.value,
             agenda: agenda.value
@@ -63,7 +68,8 @@ const kosong = () => {
     addDailyTask(
         title.value,
         date.value,
-        agenda.value
+        agenda.value,
+        idDailyTask = i
     )
 
     title.value= "",
@@ -74,19 +80,19 @@ const kosong = () => {
 
 if(localStorage.getItem("dailyTask")){
     dailyTask = JSON.parse(localStorage.getItem("dailyTask"));
+    i = 0;
     dailyTask.forEach(item => {
-        addDailyTask(item);
-        hapusData(item)
+        addDailyTask(item, i);
+        i++;
     });
-    console.log('data==>',dailyTask)  
 }else {
     hasil.innerHTML += kosong()
 }
-const hapus = document.querySelector('.hapus');
-// const getTitle = document.querySelector('.getTitle');
-hapus.addEventListener('click', () =>{
-    // hapusData(index)
-    console.log(hapusData.prototype)
-    // console.log(getTitle.innerHTML)
-    // location.reload();
-})
+const hapusBtn = document.getElementsByClassName('hapus');
+for(var i = 0; i < hapusBtn.length; i++) {
+  (function(index) {
+    hapusBtn[index].addEventListener("click", function() {
+       hapusData(index);
+     })
+  })(i);
+}
